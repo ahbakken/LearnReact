@@ -5,28 +5,18 @@
     </div>
     <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
-    <div>
-        <p>Hello World</p>
-    </div>
-    <script type="text/javascript">
+    <!-- Babel Script -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-        //selects the dic element with id 'app'
+    <script type="text/jsx">
         const app = document.getElementById('app');
 
-        //creates a new H1 element
-        const header = document.createElement('h1');
+        function Header() {
+            return <h1>Develop. Preview. Ship.</h1>;
+        }
 
-        //creates a new text node
-        const headerContent = document.createTextNode(
-            'Develop. Preview. Ship',
-        );
 
-        // Appends the text to H1 element
-        header.appendChild(headerContent);
-
-        // Places the H1 element inside the div
-        app.appendChild(header)
-
+        ReactDOM.render(<Header />, app);    
     </script>
   </body>
 </html>
