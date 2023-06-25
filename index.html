@@ -1,42 +1,43 @@
 <!-- index.html -->
 <html>
   <body>
-    <div id="app">
-    </div>
+    <div id="app"></div>
+
     <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
-    <!-- Babel Script -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
     <script type="text/jsx">
-        const app = document.getElementById('app');
+      const app = document.getElementById('app');
 
-        function Header({ title }) {
-            return <h1>{title ? title : 'Default Title'}</h1>;
-        }
+      function Header({ title }) {
+          return <h1>{title ? title : 'Default Title'}</h1>;
+      }
 
-        function HomePage() {
-            const names = ['Dengo', 'Pandinha', 'Love of my life', 'Wife']
+      function HomePage() {
+          const names = ['Dengo', 'Pandinha', 'Love of my life', 'Wife']
 
-            function handleClick() {
-                console.log("----------Increment like count------------")
-            }
+          const [likes, setLikes] = React.useState(0);
 
-            return (
-                <div>
-                    <Header title = "React <3"/>
-                    <ul>
-                        {names.map((name) =>(
-                            <li key={name}>{name}</li>
-                        ))}
-                    </ul>
+          function handleClick() {
+              setLikes(likes + 1)
+          }
 
-                    <button onClick = {handleClick}>LIKE</button>
-                </div>
-            )
-        }
+          return (
+              <div>
+                  <Header title = "React <3"/>
+                  <ul>
+                      {names.map((name) =>(
+                          <li key={name}>{name}</li>
+                      ))}
+                  </ul>
 
-        ReactDOM.render(<HomePage />, app);    
+                  <button onClick = {handleClick}>LIKE ({likes})</button>
+              </div>
+          )
+      }
+
+      ReactDOM.render(<HomePage />, app);
     </script>
   </body>
 </html>
