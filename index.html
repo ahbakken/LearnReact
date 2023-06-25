@@ -11,15 +11,27 @@
     <script type="text/jsx">
         const app = document.getElementById('app');
 
-        function Header() {
-            return <h1>Develop. Preview. Ship.</h1>;
+        function Header({ title }) {
+            return <h1>{title ? title : 'Default Title'}</h1>;
         }
 
         function HomePage() {
+            const names = ['Dengo', 'Pandinha', 'Love of my life', 'Wife']
+
+            function handleClick() {
+                console.log("----------Increment like count------------")
+            }
+
             return (
                 <div>
-                    {/* Nesting the Header component */}
-                    <Header />
+                    <Header title = "React <3"/>
+                    <ul>
+                        {names.map((name) =>(
+                            <li key={name}>{name}</li>
+                        ))}
+                    </ul>
+
+                    <button onClick = {handleClick}>LIKE</button>
                 </div>
             )
         }
