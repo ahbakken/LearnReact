@@ -1,29 +1,15 @@
-// index.html
-import { useState } from "react";
+// index.js
 
-function Header({ title }) {
-  return <h1>{title ? title : "Default Title"}</h1>;
+function MyButton() {
+    return (
+        <button>Jeg er en knapp</button>
+    )
 }
-
 export default function HomePage() {
-  const names = ["Dengo", "Pandinha", "Love of my life", "Wife"];
-
-  const [likes, setLikes] = useState(0);
-
-  function handleClick() {
-    setLikes(likes + 1);
-  }
-
-  return (
-    <div>
-      <Header title="React" />
-      <ul>
-        {names.map((name) => (
-          <li key={name}>{name}</li>
-        ))}
-      </ul>
-
-      <button onClick={handleClick}>LIKE ({likes})</button>
-    </div>
-  );
+    return (
+        <>
+            <h1>Hei</h1>
+            <MyButton />
+        </>
+    )
 }
